@@ -51,7 +51,7 @@ Candidates should possess the following skills, as they may be necessary in orde
         <td>2&gt;&amp;1</td>
         <td>redirect all output to a pipe</td>
     </tr>
-<table>
+</table>
 
 * use **>>** to append instead of overwrite
 
