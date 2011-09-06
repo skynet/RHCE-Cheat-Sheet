@@ -30,11 +30,28 @@ Candidates should possess the following skills, as they may be necessary in orde
 
 ### use input/output redirection
 
-| operator | description |
-| > | redirect STDOUT to a file |
-| 2> | redirect STDERR to a file |
-| &> | redirect all output to a file |
-| 2>&1 | redirect all output to a pipe |
+<table>
+    <tr>
+        <td>operator</td>
+        <td>description</td>
+    </tr>
+    <tr>
+        <td>&gt;</td>
+        <td>redirect STDOUT to a file</td>
+    </tr>
+    <tr>
+        <td>2&gt;</td>
+        <td>redirect STDERR to a file</td>
+    </tr>
+    <tr>
+        <td>&amp;&gt;</td>
+        <td>redirect all output to a file</td>
+    </tr>
+    <tr>
+        <td>2&gt;&amp;1</td>
+        <td>redirect all output to a pipe</td>
+    </tr>
+<table>
 
 * use **>>** to append instead of overwrite
 
@@ -774,8 +791,16 @@ check virtual host config:
 
 firewall config:
 
-| protocol | ports |
-| tcp | 80, 443 |
+<table>
+    <tr>
+        <td>protocol</td>
+        <td>ports</td>
+    </tr>
+    <tr>
+        <td>tcp</td>
+        <td>80, 443</td>
+    </tr>
+</table>
 
 hosts are allowed by default and must be explicitly denied:
 
@@ -905,9 +930,20 @@ fstab example:
 
 firewall config:
 
-| protocol | ports |
-| tcp | 139, 445 |
-| udp | 137, 138 |
+<table>
+    <tr>
+        <td>protocol</td>
+        <td>ports</td>
+    </tr>
+    <tr>
+        <td>tcp</td>
+        <td>139, 445</td>
+    </tr>
+    <tr>
+        <td>udp</td>
+        <td>137, 138</td>
+    </tr>
+</table>
 
 hosts allow/deny can be used per-server or per-share:
 
@@ -1022,8 +1058,17 @@ allow local users to log in and cd into home directories:
 * use ipchains with **-[!]s** option
 
 firewall config:
-| protocol | ports |
-| tcp | 21 |
+
+<table>
+    <tr>
+        <td>protocol</td>
+        <td>ports</td>
+    </tr>
+    <tr>
+        <td>tcp</td>
+        <td>21</td>
+    </tr>
+</table>
 
 **Note:** ftp data transfers will not work unless **ip_conntrack_ftp** is added to **IPTABLES_MODULES** in **/etc/sysconfig/iptables-config**
 
@@ -1061,8 +1106,17 @@ allow squid to connect to the network (this is recommended, but was not needed i
 ##### host-based security
 
 firewall config:
-| protocol | ports |
-| tcp | 3128 |
+
+<table>
+    <tr>
+        <td>protocol</td>
+        <td>ports</td>
+    </tr>
+    <tr>
+        <td>tcp</td>
+        <td>3128</td>
+    </tr>
+</table>
 
 allow access from local networks:
 
@@ -1130,8 +1184,17 @@ enable outbound aliases:
 * use ipchains with **-[!]s** option
 
 firewall config:
-| protocol | ports |
-| tcp | 25 |
+
+<table>
+    <tr>
+        <td>protocol</td>
+        <td>ports</td>
+    </tr>
+    <tr>
+        <td>tcp</td>
+        <td>25</td>
+    </tr>
+</table>
 
 ##### user-based security
 
@@ -1169,8 +1232,16 @@ create custom ssl cert:
 
 use ipchains with **-[!]s** option
 
-| protocol | ports |
-| tcp | 143, 110, 995, 993 |
+<table>
+    <tr>
+        <td>protocol</td>
+        <td>ports</td>
+    </tr>
+    <tr>
+        <td>tcp</td>
+        <td>143, 110, 995, 993</td>
+    </tr>
+</table>
 
 ##### user-based security
 
@@ -1205,8 +1276,16 @@ allow/deny user access:
 
 firewall config:
 
-| protocol | ports |
-| tcp | 22 |
+<table>
+    <tr>
+        <td>protocol</td>
+        <td>ports</td>
+    </tr>
+    <tr>
+        <td>tcp</td>
+        <td>22</td>
+    </tr>
+</table>
 
 tcp_wrappers example:
 
@@ -1248,9 +1327,20 @@ slave nameserver:
 
 firewall config:
 
-| protocol | ports |
-| tcp | 53 |
-| udp | 53 |
+<table>
+    <tr>
+        <td>protocol</td>
+        <td>ports</td>
+    </tr>
+    <tr>
+        <td>tcp</td>
+        <td>53</td>
+    </tr>
+    <tr>
+        <td>udp</td>
+        <td>53</td>
+    </tr>
+</table>
 
 allow-query example:
 
@@ -1284,8 +1374,16 @@ test zone transfer:
 
 firewall config:
 
-| protocol | ports |
-| udp | 123 |
+<table>
+    <tr>
+        <td>protocol</td>
+        <td>ports</td>
+    </tr>
+    <tr>
+        <td>udp</td>
+        <td>123</td>
+    </tr>
+</table>
 
 allow other servers to sync with us:
 
@@ -1390,18 +1488,55 @@ FIXME
 
     <module interface> <control flag> <module name> <module arguments>
 
-| module interface | description |
-| auth | user authentication (e.g. verifies password, set group membership or kerberos tickets, etc.) |
-| account | verifies that access is allowed (e.g. expired account?, check group membership, etc.) |
-| password | handles password changes |
-| session | manages user sessions (e.g. mount home dir, create mailbox, logging, etc.) |
+<table>
+    <tr>
+        <td>interface</td>
+        <td>description</td>
+    </tr>
+    <tr>
+        <td>auth</td>
+        <td>user authentication (e.g. verifies password, set group membership or kerberos tickets, etc.)</td>
+    </tr>
+    <tr>
+        <td>account</td>
+        <td>verifies that access is allowed (e.g. expired account?, check group membership, etc.)</td>
+    </tr>
+    <tr>
+        <td>password</td>
+        <td>handles password changes</td>
+    </tr>
+    <tr>
+        <td>session</td>
+        <td>manages user sessions (e.g. mount home dir, create mailbox, logging, etc.)</td>
+    </tr>
+</table>
 
-| control flag | description |
-| required | must pass, **continue** testing on failure |
-| requisite | must pass, **stop** testing on failure |
-| sufficient | failure is ignored, but if passing so far, return success at this point |
-| optional | pass or failure is irrelevant |
-| include | include another file |
+<table>
+    <tr>
+        <td>control flag</td>
+        <td>description</td>
+    </tr>
+    <tr>
+        <td>required</td>
+        <td>must pass, **continue** testing on failure</td>
+    </tr>
+    <tr>
+        <td>requisite</td>
+        <td>must pass, **stop** testing on failure</td>
+    </tr>
+    <tr>
+        <td>sufficient</td>
+        <td>failure is ignored, but if passing so far, return success at this point</td>
+    </tr>
+    <tr>
+        <td>optional</td>
+        <td>pass or failure is irrelevant</td>
+    </tr>
+    <tr>
+        <td>include</td>
+        <td>include another file</td>
+    </tr>
+</table>
 
 ##### pam_listfile.so example
 
