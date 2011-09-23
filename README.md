@@ -101,6 +101,7 @@ RHCTs should be able to:
 #### boot systems into different run levels for troubleshooting and system maintenance
 
 append the desired runlevel to grub's kernel line:
+
 * **1-5** runs appropriate rc and init scripts
 * **single** only runs rc.sysinit
 * **emergency** skips all rc and init scripts
@@ -147,6 +148,7 @@ xfs is supposedly required for x windows (even though i can run x fine without i
     chkconfig xfs on
 
 x environment config:
+
 * /etc/sysconfig/desktop
 * /etc/X11/xinit/xinitrc
 * /etc/X11/xinit/Xclients
@@ -639,7 +641,6 @@ fix corrupt filesystem:
     fsck <partition>
 
 if fsck is unable to locate a superblock, you can specify an alternative one:
-
 
     dumpe2fs <partition>
     fsck -b <block#> <partition>
